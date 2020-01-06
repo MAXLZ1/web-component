@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>自定义标签</title>
+  <style>
+    .xxx{
+      color:red
+    }
+  </style>
+  <script src="js/custom-button.js" defer></script>
+</head>
+<body>
+  <template id="button-template">
+    <style>
+      :host .custom-button {
+        border: none;
+        cursor: pointer;
+        background: hsla(30, 70%, 50%, 1);
+        color: #ffffff;
+        line-height: 30px;
+        border-radius: 5px;
+        outline: none;
+      }
+    </style>
+    <button class="custom-button"><slot name="my-content">默认内容</slot></button>
+  </template>
+  
+  <custom-button1 text="自定义按钮" class="xxx"></custom-button1>
+  
+  <custom-button2 text="自定义按钮" class="xxx"></custom-button2>
+  
+  <custom-button3 class="xxx">
+    <a slot="my-content" >slot插槽</a>
+  </custom-button3>
+  
+  <button is="custom-button">内建button扩展</button>
+
+  
+</body>
+</html>
